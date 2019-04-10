@@ -12,7 +12,7 @@ S=0:1:50;
 for s =S
     B(end+1)=erlangBb(s,a);
 end
-plot(S,B),xlabel("中继线"),ylabel("阻塞率"),title("a=20");
+plot(S,B),xlabel("中继线"),ylabel("阻塞率"),title("呼叫量a=20");
 clear
 
 figure(2)
@@ -22,7 +22,7 @@ A=0:0.01:20;
 for a =A
     B(end+1)=erlangBb(s,a);
 end
-plot(A,B),xlabel("呼叫量"),ylabel("阻塞率"),title("s=20");
+plot(A,B),xlabel("呼叫量"),ylabel("阻塞率"),title("中继线s=20");
 clear
 
 figure(3)
@@ -32,7 +32,7 @@ A=10:0.01:20;
 for a=A
     S(end+1)=erlangBs(b,a);
 end
-plot(A,S),xlabel("呼叫量"),ylabel("中继线"),title("b=0.001");
+plot(A,S),xlabel("呼叫量"),ylabel("中继线"),title("阻塞率b=0.001");
 clear
 
 figure(4)

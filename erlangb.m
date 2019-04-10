@@ -27,7 +27,7 @@ function varargout = erlangb(varargin)
 
 % Edit the above text to modify the response to help erlangb
 
-% Last Modified by GUIDE v2.5 09-Apr-2019 18:16:29
+% Last Modified by GUIDE v2.5 10-Apr-2019 09:40:04
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -155,6 +155,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 b = (get(handles.edit1,'String'));
 a = (get(handles.edit2,'String'));
 s= (get (handles.edit3,'String'));
+step=(get (handles.edit4,'String'));
 if ~ isempty(a) && ~ isempty(b) &&  isempty(s)
 % a和b是字符串变量，我们需要使用str2double函数将其转换为数值
 a=str2double(a);
@@ -166,9 +167,14 @@ c = num2str(s); % 转换为字符串
 set(handles.edit3,'String',c);
 end
 if  isempty(a) && ~ isempty(b) &&  ~isempty(s)
+if isempty(step)
+    step=pi/100;
+else
+    step=str2double(step);
+end
 s=str2double(s);
 b=str2double(b);
-a=erlangBa(s,b);
+a=erlangBa(s,b,step);
 disp(a);
 c = num2str(a); 
 set(handles.edit2,'String',c);
@@ -182,3 +188,46 @@ c = num2str(b);
 set(handles.edit1,'String',c);
 end
 guidata(hObject, handles); % 更新结构
+
+
+
+function edit4_Callback(hObject, eventdata, handles)
+% hObject    handle to edit4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit4 as text
+%        str2double(get(hObject,'String')) returns contents of edit4 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit4_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.edit1,'String',"");
+set(handles.edit2,'String',"");
+set(handles.edit3,'String',"");
+set(handles.edit4,'String',"");
+guidata(hObject, handles); % 更新结构
+
+
+% --- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+figure3d;
