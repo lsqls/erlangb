@@ -36,12 +36,12 @@ plot(A,S),xlabel("呼叫量"),ylabel("中继线"),title("阻塞率b=0.001");
 clear
 
 figure(4)
-S=1:50;
+S=0:50;
 B=[];
 AE=[];
 SE=[];
 for s=S
-    A=0:0.001:60;
+    A=0:1:60;
     for a=A
         AE(end+1)=a;
         SE(end+1)=s;
