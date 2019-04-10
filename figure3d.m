@@ -50,5 +50,3 @@ for s=S
 end
 plot3(SE,AE,B),xlabel("中继线"),ylabel("呼叫量"),zlabel("阻塞率");%plot3需要更换
 clear
-    
-
