@@ -152,18 +152,19 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+%根据tag获取字符变量
 b = (get(handles.edit1,'String'));
 a = (get(handles.edit2,'String'));
 s= (get (handles.edit3,'String'));
 step=(get (handles.edit4,'String'));
-if ~ isempty(a) && ~ isempty(b) &&  isempty(s)
-% a和b是字符串变量，我们需要使用str2double函数将其转换为数值
+if ~ isempty(a) && ~ isempty(b) &&  isempty(s)%根据未填写的文本框，检测需要求的是a，s还是b
+% 字符串变量需要使用str2double函数将其转换为数值
 a=str2double(a);
 b=str2double(b);
 s=erlangBs(b,a);
 disp(s);
 c = num2str(s); % 转换为字符串
-% 将结果赋值给edit3空间的string属性，于是就可以显示结果了
+% 将结果赋值给tag为edit3的string属性，于是就可以显示结果了
 set(handles.edit3,'String',c);
 end
 if  isempty(a) && ~ isempty(b) &&  ~isempty(s)
@@ -218,6 +219,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+%清空按钮，所有文本框设置为空
 set(handles.edit1,'String',"");
 set(handles.edit2,'String',"");
 set(handles.edit3,'String',"");
@@ -230,4 +232,4 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton4 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-figure3d;
+figure3d;% 点击图例按钮绘图

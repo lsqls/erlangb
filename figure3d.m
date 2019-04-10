@@ -10,9 +10,9 @@ a=20;
 B=[];
 S=0:1:50;
 for s =S
-    B(end+1)=erlangBb(s,a);
+    B(end+1)=erlangBb(s,a);%对数组内的元素逐个求值
 end
-plot(S,B),xlabel("中继线"),ylabel("阻塞率"),title("呼叫量a=20");
+plot(S,B),xlabel("中继线"),ylabel("阻塞率"),title("呼叫量a=20");%绘图
 clear
 
 figure(2)
@@ -48,7 +48,7 @@ for s=S
         B(end+1)=erlangBb(s,a);
     end
 end
-plot3(SE,AE,B),xlabel("中继线"),ylabel("呼叫量"),zlabel("阻塞率");
+plot3(SE,AE,B),xlabel("中继线"),ylabel("呼叫量"),zlabel("阻塞率");%plot3需要更换
 clear
     
 
